@@ -4,6 +4,11 @@ import static org.junit.Assert.*;
 
 import org.junit.Test;
 
+import external.common.flags.FlagException;
+import external.common.flags.FlagInfo;
+import external.common.flags.Flags;
+import external.common.flags.IllegalFlagAnnotationException;
+
 /**
  * Tests for {@link IllegalFlagAnnotationException}
  *

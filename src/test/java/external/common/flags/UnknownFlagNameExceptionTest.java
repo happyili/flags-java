@@ -5,6 +5,10 @@ import static org.junit.Assert.fail;
 
 import org.junit.Test;
 
+import external.common.flags.FlagException;
+import external.common.flags.Flags;
+import external.common.flags.UnknownFlagNameException;
+
 /**
  * Tests for {@link UnknownFlagNameException}
  *

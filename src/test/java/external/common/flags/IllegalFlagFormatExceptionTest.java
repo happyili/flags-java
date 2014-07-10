@@ -9,6 +9,12 @@ import org.junit.Test;
 
 import com.google.common.collect.ImmutableMap;
 
+import external.common.flags.Flag;
+import external.common.flags.FlagException;
+import external.common.flags.FlagInfo;
+import external.common.flags.Flags;
+import external.common.flags.IllegalFlagFormatException;
+
 /**
  * Tests for {@link IllegalFlagFormatException}
  *

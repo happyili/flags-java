@@ -1,3 +1,9 @@
+How to Build
+====================
+mvn assembly:single
+mvn verify
+
+
 How to Create a Flag
 ====================
 To create a new flag, create a new static `java.extern.common.flags.Flag` field.

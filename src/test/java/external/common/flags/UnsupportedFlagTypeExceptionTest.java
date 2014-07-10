@@ -4,6 +4,12 @@ import static org.junit.Assert.*;
 
 import org.junit.Test;
 
+import external.common.flags.Flag;
+import external.common.flags.FlagException;
+import external.common.flags.FlagInfo;
+import external.common.flags.Flags;
+import external.common.flags.UnsupportedFlagTypeException;
+
 /**
  * Tests for {@link UnsupportedFlagTypeException}
  *

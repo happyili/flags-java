@@ -13,6 +13,10 @@ import com.google.common.collect.Lists;
 import com.google.common.collect.Maps;
 import com.google.common.collect.Sets;
 
+import external.common.flags.Flag;
+import external.common.flags.FlagInfo;
+import external.common.flags.Flags;
+
 /**
  * Tests for {@link Flags}.
  *
@@ -102,56 +106,56 @@ public class FlagsTest {
   public void testIntegerFull() {
     String[] args = {"--flagInteger=7"};
     Flags.parse(args, "testing");
-    assertEquals(7, flagInteger.get());
+    assertEquals(7, (int)flagInteger.get());
   }
 
   @Test
   public void testIntegerAlt() {
     String[] args = {"-int=-5"};
     Flags.parse(args, "testing");
-    assertEquals(-5, flagInteger.get());
+    assertEquals(-5, (int)flagInteger.get());
   }
 
   @Test
   public void testLongFull() {
     String[] args = {"--flagLong=7"};
     Flags.parse(args, "testing");
-    assertEquals(7L, flagLong.get());
+    assertEquals(7L, (long)flagLong.get());
   }
 
   @Test
   public void testLongAlt() {
     String[] args = {"-long=-5"};
     Flags.parse(args, "testing");
-    assertEquals(-5L, flagLong.get());
+    assertEquals(-5L, (long)flagLong.get());
   }
 
   @Test
   public void testDoubleFull() {
     String[] args = {"--flagDouble=5.6"};
     Flags.parse(args, "testing");
-    assertEquals(5.6, flagDouble.get());
+    assertEquals((Double)5.6, flagDouble.get());
   }
 
   @Test
   public void testDoubleAlt() {
     String[] args = {"-double=-5.4"};
     Flags.parse(args, "testing");
-    assertEquals(-5.4, flagDouble.get());
+    assertEquals((Double) (-5.4), flagDouble.get());
   }
 
   @Test
   public void testFloatFull() {
     String[] args = {"--flagFloat=5.6"};
     Flags.parse(args, "testing");
-    assertEquals((float) 5.6, flagFloat.get());
+    assertEquals((float) (5.6), (float)flagFloat.get());
   }
 
   @Test
   public void testFloatAlt() {
     String[] args = {"-float=-5.4"};
     Flags.parse(args, "testing");
-    assertEquals((float) -5.4, flagFloat.get());
+    assertEquals((float) -5.4, (float)flagFloat.get());
   }
 
   @Test
@@ -186,14 +190,14 @@ public class FlagsTest {
   public void testCharacterFull() {
     String[] args = {"--flagCharacter=c"};
     Flags.parse(args, "testing");
-    assertEquals('c', flagCharacter.get());
+    assertEquals((Character)'c', flagCharacter.get());
   }
 
   @Test
   public void testCharacterAlt() {
     String[] args = {"-char=d"};
     Flags.parse(args, "testing");
-    assertEquals('d', flagCharacter.get());
+    assertEquals((Character)'d', flagCharacter.get());
   }
 
   @Test
@@ -214,28 +218,28 @@ public class FlagsTest {
   public void testByteFull() {
     String[] args = {"--flagByte=AB"};
     Flags.parse(args, "testing");
-    assertEquals((byte) 0xAB, flagByte.get());
+    assertEquals((byte) 0xAB, (byte) flagByte.get());
   }
 
   @Test
   public void testByteAlt() {
     String[] args = {"-byte=-AB"};
     Flags.parse(args, "testing");
-    assertEquals((byte) -0xAB, flagByte.get());
+    assertEquals((byte) -0xAB, (byte) flagByte.get());
   }
 
   @Test
   public void testShortFull() {
     String[] args = {"--flagShort=2"};
     Flags.parse(args, "testing");
-    assertEquals((short) 2, flagShort.get());
+    assertEquals((short) 2, (short) flagShort.get());
   }
 
   @Test
   public void testShortAlt() {
     String[] args = {"-short=-2"};
     Flags.parse(args, "testing");
-    assertEquals((short) -2, flagShort.get());
+    assertEquals((short) -2, (short) flagShort.get());
   }
 
   @Test
@@ -344,15 +348,15 @@ public class FlagsTest {
         "--flagSetEnum=MONDAY,SUNDAY,THURSDAY"
     };
     Flags.parse(args, "testing");
-    assertEquals(-5, flagInteger.get());
-    assertEquals(6L, flagLong.get());
-    assertEquals(-4.5, flagDouble.get());
-    assertEquals((float) 5.6, flagFloat.get());
+    assertEquals(-5, (int) flagInteger.get());
+    assertEquals(6L, (long) flagLong.get());
+    assertEquals(-4.5, (double) flagDouble.get());
+    assertEquals((float) 5.6, (float)flagFloat.get());
     assertEquals(true, flagBoolean.get());
-    assertEquals('d', flagCharacter.get());
+    assertEquals((Character)'d', flagCharacter.get());
     assertEquals("foo", flagString.get());
-    assertEquals((byte) 0xBC, flagByte.get());
-    assertEquals((short) 2, flagShort.get());
+    assertEquals((byte) 0xBC, (byte)flagByte.get());
+    assertEquals((short) 2, (short)flagShort.get());
     assertEquals(Lists.newArrayList(4, 5, 6), flagList.get());
     assertEquals(Sets.newHashSet("cheese", "bar"), flagSet.get());
     Map<String, Integer> map = Maps.newHashMap();
@@ -370,13 +374,13 @@ public class FlagsTest {
   public void testDefault() {
     String[] args = {"--flagInteger=7"};
     Flags.parse(args, "testing");
-    assertEquals(0, flagInteger.defaultValue());
+    assertEquals(0, (int) flagInteger.defaultValue());
   }
 
   @Test
   public void testStaticFinal() {
     String[] args = {"--flagStaticFinal=8"};
     Flags.parse(args, "testing");
-    assertEquals(8, flagStaticFinal.get());
+    assertEquals(8, (int) flagStaticFinal.get());
   }
 }
